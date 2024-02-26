@@ -1,0 +1,31 @@
+# Arquivos gerados pelo Composer
+/vendor/
+
+# Arquivos de dependências específicos do Composer, incluindo a cache do Composer
+composer.lock
+composer.phar
+/vendor-bin/
+
+# Arquivos gerados pelo PHPStorm
+.idea/
+
+# Arquivos de configuração local (exemplo: config.php)
+/config.php
+
+# Arquivos de cache gerados pelo PHP
+/cache/
+
+# Arquivos de log gerados pelo PHP
+/logs/
+
+# Arquivos de sessão do PHP
+/sessions/
+
+# Arquivos de backup (exemplo: arquivo.sql~)
+*~
+
+# Arquivos de configuração específicos do servidor web (exemplo: .htaccess)
+*.htaccess
+
+# Arquivos de log do servidor web
+/logs/

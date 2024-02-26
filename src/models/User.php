@@ -1,31 +1,121 @@
 <?php
+
+// User Model
+
 class User
 {
-    public $id;
-    public $first_name;
-    public $last_name;
-    public $email;
-    public $password;
-    public $profile_id;
-    // public $created_at;
-    // public $update_at;
-    public $active;
+    private $id;
+    private $name;
+    private $email;
+    private $passwordHash;
+    private $profileId;
+    private $active;
+    private $updatedAt;
+    private $createdAt;
 
-    public function __construct($id, $first_name, $last_name, $email, $password, $profile_id, $active)
+    public function __construct($id, $name, $email, $password, $profileId, $active, $updatedAt, $createdAt)
     {
         $this->id = $id;
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
+        $this->name = $name;
         $this->email = $email;
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
-        $this->profile_id = $profile_id;
-        // $this->created_at = $created_at;
-        // $this->update_at = $update_at;
+        $this->passwordHash = $this->hashPassword($password);
+        $this->profileId = $profileId;
+        $this->active = $active;
+        $this->updatedAt = $updatedAt;
+        $this->createdAt = $createdAt;
+    }
+
+    // Getters e Setters para todos os campos
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getPassword()
+    {
+        return $this->passwordHash;
+    }
+
+    public function setPassword($password)
+    {
+        $this->passwordHash = $this->hashPassword($password);
+    }
+
+    public function getProfileId()
+    {
+        return $this->profileId;
+    }
+
+    public function setProfileId($profileId)
+    {
+        $this->profileId = $profileId;
+    }
+
+    public function isActive()
+    {
+        return $this->active;
+    }
+
+    public function setActive($active)
+    {
         $this->active = $active;
     }
 
-    public function validatePassword($password)
+    public function getUpdatedAt()
     {
-        return password_verify($password, $this->password);
+        return $this->updatedAt;
     }
+
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    private function hashPassword($password)
+    {
+        return password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    public function verifyPassword($password)
+    {
+        return password_verify($password, $this->passwordHash);
+    }
+
 }
+
+?>
