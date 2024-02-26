@@ -1,7 +1,5 @@
 <?php
 
-// User Model
-
 class User
 {
     private $id;
