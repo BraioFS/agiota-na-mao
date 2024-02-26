@@ -1,35 +1,45 @@
 <?php
-require_once "../chamado-real/src/models/User.php";
 
 class LoginController
 {
-    private $users;
+    private $userController;
 
-    public function __construct()
+    public function __construct(UserController $userController)
     {
         $this->users = [
-            new User(1, 'Braio', 'Mernick', 'braio@gmail.com', '123456', 1, true),
-            new User(2, 'Jão', 'Lazinhõn', 'Jao@gmail.com', '123456', 2, true),
-            new User(3, 'Riucardo', 'tratch', 'riucardo@gmail.com', '123456', 3, true)
+            new User(
+                1,
+                "Bryan",
+                "bryan@gmail.com",
+                "123456",
+                1,
+                true,
+                "2024-02-26 12:00:00",
+                "2024-02-26 12:00:00"
+            )
         ];
+        $this->userController = $userController;
     }
 
     public function authenticate($email, $password)
     {
-        foreach($this->users as $user) {
-            if(($user->email === $email) && ($user->password === $password)){
-                $_SESSION['autentication'] = 'YES';
-                $_SESSION['id'] = $user->id;
-                $_SESSION['name'] = $user->first_name + ' ' + $user->last_name;
-                $_SESSION['profile_id'] = $user->profile_id;
-                $_SESSION['email'] = $user->email;
-                header('Location: ../chamadoReal/src/view/home.php');
-                exit;
-            }
-        }
+        $user = $this->userController->getUserByEmail($email);
 
-        $_SESSION['autentication'] = 'NO';
-        header('location: index.php?login=erro');
-        exit;
+        if ($user !== null && $user->verifyPassword($password)) {
+            session_start();
+            $_SESSION['authentication'] = 'YES';
+            $_SESSION['id'] = $user->getId();
+            $_SESSION['name'] = $user->getName();
+            $_SESSION['profile_id'] = $user->getProfileId();
+            $_SESSION['email'] = $user->getEmail();
+            header('Location: ../chamadoReal/src/view/home.php');
+            exit;
+        } else {
+            session_start();
+            $_SESSION['authentication'] = 'NO';
+            header('Location: index.php?login=erro');
+            exit;
+        }
     }
 }
+?>

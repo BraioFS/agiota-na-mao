@@ -9,31 +9,37 @@ class UserController
         $this->userService = $userService;
     }
 
-    public function index()
+    public function getAllUsers()
     {
         $users = $this->userService->getAllUsers();
         return $users;
     }
 
-    public function show($userId)
+    public function getUserById($userId)
     {
         $user = $this->userService->getUserById($userId);
         return $user;
     }
 
-    public function store($userData)
+    public function createUser($userData)
     {
         $user = $this->userService->createUser($userData);
         return $user;
     }
 
-    public function update($userId, $newUserData)
+    public function getUserByEmail($email)
+    {
+        $user = $this->userService->getUserByEmail($email);
+        return $user;
+    }
+
+    public function updateUser($userId, $newUserData)
     {
         $newUser = $this->userService->updateUser($userId, $newUserData);
         return $newUser;
     }
 
-    public function destroy($userId)
+    public function deleteUser($userId)
     {
         $userDeleted = $this->userService->deleteUser($userId);
         return $userDeleted;
