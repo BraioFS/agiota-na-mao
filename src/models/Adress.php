@@ -3,15 +3,17 @@
 class Address
 {
     private $id;
+    private $zipCode;
     private $latitude;
     private $longitude;
     private $active;
     private $updatedAt;
     private $createdAt;
 
-    public function __construct($id, $latitude, $longitude, $active, $updatedAt, $createdAt)
+    public function __construct($id, $zipCode, $latitude, $longitude, $active, $updatedAt, $createdAt)
     {
         $this->id = $id;
+        $this->zipCode = $zipCode;
         $this->latitude = $latitude;
         $this->longitude = $longitude;
         $this->active = $active;
@@ -29,6 +31,17 @@ class Address
     {
         $this->id = $id;
     }
+
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+    }
+
 
     public function getLatitude()
     {
