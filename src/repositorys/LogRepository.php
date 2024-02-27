@@ -19,7 +19,7 @@ class LogRepository
         return null;
     }
 
-    public function create($data)
+    public function createLog($data)
     {
         $logData['id'] = uniqid();
         $this->logs[] = $logData;

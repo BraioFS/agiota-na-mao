@@ -8,13 +8,13 @@ class LogService
         $this->logRepository = new LogRepository();
     }
 
-    public function getProposalById($id)
+    public function getLogById($id)
     {
         return $this->logRepository->getById($id);
     }
 
-    public function createProposal($data)
+    public function createLog($data)
     {
-        return $this->logRepository->create($data);
+        return $this->logRepository->createLog($data);
     }
 } ?>

@@ -7,12 +7,12 @@ class LogController {
         $this->logService = new LogService();
     }
 
-    public function show($id) {
-        return $this->logService->getProposalById($id);
+    public function getLogById($id) {
+        return $this->logService->getLogById($id);
     }
 
-    public function store($data) {
-        return $this->logService->createProposal($data);
+    public function createLog($data) {
+        return $this->logService->createLog($data);
     }
 
 }

@@ -7,23 +7,23 @@ class ProposalController {
         $this->proposalService = new ProposalService();
     }
 
-    public function index() {
+    public function getAllProposals() {
         return $this->proposalService->getAllProposals();
     }
 
-    public function show($id) {
+    public function getProposalById($id) {
         return $this->proposalService->getProposalById($id);
     }
 
-    public function store($data) {
+    public function createProposal($data) {
         return $this->proposalService->createProposal($data);
     }
 
-    public function update($id, $data) {
+    public function updateProposal($id, $data) {
         return $this->proposalService->updateProposal($id, $data);
     }
 
-    public function destroy($id) {
+    public function deleteProposal($id) {
         return $this->proposalService->deleteProposal($id);
     }
 }

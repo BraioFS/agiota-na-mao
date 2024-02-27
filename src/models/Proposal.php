@@ -7,21 +7,19 @@ class Proposal
     private $clientId;
     private $pricing;
     private $installments;
-    private $latitude;
-    private $longitude;
+    private $addressId;
     private $active;
     private $updatedAt;
     private $createdAt;
 
-    public function __construct($id, $loanSharkId, $clientId, $pricing, $installments, $latitude, $longitude, $active, $updatedAt, $createdAt)
+    public function __construct($id, $loanSharkId, $clientId, $pricing, $installments, $addressId, $active, $updatedAt, $createdAt)
     {
         $this->id = $id;
         $this->loanSharkId = $loanSharkId;
         $this->clientId = $clientId;
         $this->pricing = $pricing;
         $this->installments = $installments;
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
+        $this->addressId = $addressId;
         $this->active = $active;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
@@ -78,24 +76,14 @@ class Proposal
         $this->installments = $installments;
     }
 
-    public function getLatitude()
+    public function getAddressId()
     {
-        return $this->latitude;
+        return $this->addressId;
     }
 
-    public function setLatitude($latitude)
+    public function setAddressId($addressId)
     {
-        $this->latitude = $latitude;
-    }
-
-    public function getLongitude()
-    {
-        return $this->longitude;
-    }
-
-    public function setLongitude($longitude)
-    {
-        $this->longitude = $longitude;
+        $this->addressId = $addressId;
     }
 
     public function isActive()

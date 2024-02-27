@@ -3,20 +3,20 @@
 class LoginController
 {
     private $userController;
+    private $users = [];
 
     public function __construct(UserController $userController)
     {
-        $this->users = [
-            new User(
-                1,
-                "Bryan",
-                "bryan@gmail.com",
-                "123456",
-                1,
-                true,
-                "2024-02-26 12:00:00",
-                "2024-02-26 12:00:00"
-            )
+        $this->users[] = [
+            'id' => 1,
+            'name' => 'João', 
+            'email' => 'joao@example.com',
+            'password' => 'senha123',
+            'profileId' => 1,
+            'isLoanShark' => false,
+            'active' => true,
+            'updatedAt' => date('Y-m-d H:i:s'),
+            'createdAt' => date('Y-m-d H:i:s')
         ];
         $this->userController = $userController;
     }
