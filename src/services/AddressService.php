@@ -13,9 +13,9 @@ class AddressService
         return $this->addressRepository->getAddressById($id);
     }
 
-    public function getAddressByCoordinates($latitude, $longitude)
+    public function getAddress($address)
     {
-        return $this->addressRepository->getAddressByCoordinates($latitude, $longitude);
+        return $this->addressRepository->getAddress($address);
     }
 
     public function getAddressByZipCode($zipCode)

@@ -19,7 +19,7 @@ class AddressRepository
         return null;
     }
 
-    public function getAddressByCoordinates($latitude, $longitude)
+    public function getAddress($address)
     {
         //TODO - requisição api para pegar a coordenada por latitude e longitude
         return null;
