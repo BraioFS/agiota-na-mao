@@ -7,17 +7,19 @@ class User
     private $email;
     private $passwordHash;
     private $profileId;
+    private $isLoanShark;
     private $active;
     private $updatedAt;
     private $createdAt;
 
-    public function __construct($id, $name, $email, $password, $profileId, $active, $updatedAt, $createdAt)
+    public function __construct($id, $name, $email, $password, $profileId, $isLoanShark, $active, $updatedAt, $createdAt)
     {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->passwordHash = $this->hashPassword($password);
         $this->profileId = $profileId;
+        $this->isLoanShark = $isLoanShark;
         $this->active = $active;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
@@ -72,6 +74,16 @@ class User
     public function setProfileId($profileId)
     {
         $this->profileId = $profileId;
+    }
+
+    public function getIsLoanShark()
+    {
+        return $this->isLoanShark;
+    }
+
+    public function setIsLoanShark($isLoanShark)
+    {
+        $this->isLoanShark = $isLoanShark;
     }
 
     public function isActive()
