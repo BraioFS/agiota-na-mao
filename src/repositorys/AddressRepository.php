@@ -19,9 +19,15 @@ class AddressRepository
         return null;
     }
 
-    public function getAddressByCoordinates($coordinates)
+    public function getAddressByCoordinates($latitude, $longitude)
     {
-        //TODO - requisição api nos correios
+        //TODO - requisição api para pegar a coordenada por latitude e longitude
+        return null;
+    }
+
+    public function getAddressByZipCode($zipCode)
+    {
+        //TODO - requisição api para pegar a coodenada por cep
         return null;
     }
 

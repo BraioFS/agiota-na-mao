@@ -14,9 +14,14 @@ class AddressController
         return $this->addressService->getAddressById($id);
     }
 
-    public function getAddressByCoordinates($coordinates)
+    public function getAddressByCoordinates($latitude, $longitude)
     {
-        return $this->addressService->getAddressByCoordinates($coordinates);
+        return $this->addressService->getAddressByCoordinates($latitude, $longitude);
+    }
+
+    public function getAddressByZipCode($zipCode)
+    {
+        return $this->addressService->getAddressByZipCode($zipCode);
     }
 
 }
