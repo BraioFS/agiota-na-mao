@@ -7,19 +7,17 @@ class Proposal
     private $clientId;
     private $pricing;
     private $installments;
-    private $addressId;
     private $active;
     private $updatedAt;
     private $createdAt;
 
-    public function __construct($id, $loanSharkId, $clientId, $pricing, $installments, $addressId, $active, $updatedAt, $createdAt)
+    public function __construct($id, $loanSharkId, $clientId, $pricing, $installments, $active, $updatedAt, $createdAt)
     {
         $this->id = $id;
         $this->loanSharkId = $loanSharkId;
         $this->clientId = $clientId;
         $this->pricing = $pricing;
         $this->installments = $installments;
-        $this->addressId = $addressId;
         $this->active = $active;
         $this->updatedAt = $updatedAt;
         $this->createdAt = $createdAt;
@@ -74,16 +72,6 @@ class Proposal
     public function setInstallments($installments)
     {
         $this->installments = $installments;
-    }
-
-    public function getAddressId()
-    {
-        return $this->addressId;
-    }
-
-    public function setAddressId($addressId)
-    {
-        $this->addressId = $addressId;
     }
 
     public function isActive()
